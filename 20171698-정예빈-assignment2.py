@@ -7,9 +7,11 @@ while answer != -1:
 
     n = answer
     f = 1
+    if answer == -1:
+        break
+    elif answer <=-2:
+        print("No Answer")
     while n != 1:
         f = f * n
         n = n-1
     print(f)
-    if answer == -1:
-        break
