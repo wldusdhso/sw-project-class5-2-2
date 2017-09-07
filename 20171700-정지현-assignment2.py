@@ -1,8 +1,13 @@
-num = int(input("Enter a number : "))
-n = 1
-for i in range(1, num+1):
-    if i != -1:
-        n = n*i
-    elif i == -1:
-        break
-print(num, "! = ", n)
+num = 0
+while num != -1:
+    num = int(input("Enter a number : "))
+    factorial = 1
+
+    if num < 0:
+         print("Error")
+    elif num == 0:
+        print("0! = 1")
+    else:
+        for i in range(1, num + 1):
+            factorial = factorial*i
+        print(num, "! = ", factorial)
