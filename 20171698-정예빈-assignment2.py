@@ -11,6 +11,8 @@ while answer != -1:
         break
     elif answer <=-2:
         print("No Answer")
+    elif answer == 0:
+        print(1)
     while n != 1:
         f = f * n
         n = n-1
