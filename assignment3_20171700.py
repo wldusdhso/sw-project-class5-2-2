@@ -1,6 +1,6 @@
 import pickle
 
-dbfilename = 'test3_4.dat'
+dbfilename = 'assignment3.dat'
 
 
 def readScoreDB():
@@ -35,18 +35,21 @@ def doScoreDB(scdb):
         parse = inputstr.split(" ")
         if parse[0] == 'add':
             try:
+                parse[1] = int(parse[1])
+            except:
                 record = {'Name': parse[1], 'Age': parse[2], 'Score': parse[3]}
                 scdb += [record]
-            except:
-                continue
+            else:
+                print("'Name' is not number")
 
         elif parse[0] == 'find':
+            findl = []
             for p in scdb:
                 if p['Name'] == parse[1]:
                     try:
+                        findl += [p]
                         sortKey = 'Name'
-                        p.find('Name')
-                        showScoreDB(find, sortKey)
+                        showScoreDB(findl, sortKey)
                     except:
                         continue
                             
