@@ -36,9 +36,15 @@ def doScoreDB(scdb):
 				record = {'Name':parse[1], 'Age':parse[2], 'Score':parse[3]}
 				scdb += [record]
 			elif parse[0] == 'del':
+				deldb = []
 				for p in scdb:
 					if p['Name'] == parse[1]:
-						scdb.remove(p)
+						deldb +=[p]
+				for p in deldb:
+					scdb.remove(p)
+
+
+
 			elif parse[0] == 'show':
 				sortKey ='Name' if len(parse) == 1 else parse[1]
 				showScoreDB(scdb, sortKey)
