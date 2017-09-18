@@ -54,12 +54,18 @@ def doScoreDB(scdb):
                         continue
                             
         elif parse[0] == 'del':
+            deldb = []
             for p in scdb:
                 if p['Name'] == parse[1]:
                     try:
-                        scdb.remove(p)
+                        deldb += [p]
                     except:
                         continue
+            for p in deldb:
+                try:
+                    scdb.remove(p)
+                except:
+                    continue
 
         elif parse[0] == 'inc':
             for p in scdb:
