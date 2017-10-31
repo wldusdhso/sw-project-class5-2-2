@@ -90,7 +90,7 @@ class ScoreDB(QWidget):
         addButton.clicked.connect(self.addDB)
         delButton.clicked.connect(self.delDB)
         incButton.clicked.connect(self.incDB)
-        showButton.clicked.connect(self.showDB)
+        showButton.clicked.connect(self.showScoreDB)
 
         self.setLayout(vbox)
 
@@ -124,14 +124,17 @@ class ScoreDB(QWidget):
         fH = open(self.dbfilename, 'wb')
         pickle.dump(self.scoredb, fH)
         fH.close()
+        
     #show the data into person db
     def showScoreDB(self):
-        for p in self.scoredb:
-            for attr in p:
-                self.strDb += attr +" "+ str(p[attr])+"\t"
+        currentbox = self.keyCombo.currentText()
+        for p in sorted(self.scoredb, key=lambda person: person[currentbox]):
+            for attr in sorted(p):
+                self.strDb += attr + " " + str(p[attr]) + "\t"
             self.strDb += "\n"
         self.resultText.setText(self.strDb)
         self.strDb = ""
+        
     #findButton function
     def findDB(self):
         findstr = ""
@@ -142,6 +145,7 @@ class ScoreDB(QWidget):
                     findstr += attr + " " + str(p[attr]) + "\t"
                 findstr += "\n"
         self.resultText.setText(findstr)
+        
     #addButton function
     def addDB(self):
         addName = self.nameE.text()
@@ -150,6 +154,7 @@ class ScoreDB(QWidget):
         record = {'Name':addName,'Age':addAge,'Score':addScore}
         self.scoredb += [record]
         self.showScoreDB()
+        
     #deleteButton function
     def delDB(self):
         delList = []
@@ -160,6 +165,7 @@ class ScoreDB(QWidget):
         for p in delList:
             self.scoredb.remove(p)
         self.showScoreDB()
+        
     #increaseButton function
     def incDB(self):
         incName = self.nameE.text()
@@ -168,15 +174,8 @@ class ScoreDB(QWidget):
             if p['Name']==incName:
                 p['Score'] = int(p['Score'])+ int(incScore)
         self.showScoreDB()
-    #showButton function
-    def showDB(self):
-        currentbox = self.keyCombo.currentText()
-        for p in sorted(self.scoredb, key=lambda person: person[currentbox]):
-            for attr in sorted(p):
-                self.strDb += attr + " " + str(p[attr]) + "\t"
-            self.strDb += "\n"
-        self.resultText.setText(self.strDb)
-        self.strDb = ""
+
+    
 
 
 
