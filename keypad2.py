@@ -1,4 +1,3 @@
-
 numPadList = [
     '7', '8', '9',
     '4', '5', '6',
@@ -13,17 +12,30 @@ operatorList = [
     'C',
 ]
 
-constantDic = {
-    'pi':'3.141592',
-    '빛의 이동 속도 (m/s)':'3E+8',
-    '소리의 이동 속도 (m/s)':'340',
-    '태양과의 평균 거리 (km)':'1.5E+8',
-}
+constantList = [
+    'pi',
+    '빛의 이동 속도 (m/s)',
+    '소리의 이동 속도 (m/s)',
+    '태양과의 평균 거리 (km)',
+]
 
-
-functionList =[
-    'factorial (!)' ,
+functionList = [
+    'factorial (!)',
     '-> binary',
     'binary -> dec',
     '-> roman',
+]
+
+constant = [
+    '3.141592',
+    '3E+8',
+    '340',
+    '1.5E+8'
+]
+
+function = [
+    'factorial',
+    'decToBin',
+    'binToDec',
+    'decToRoman'
 ]
