@@ -130,16 +130,17 @@ class Calculator(QWidget):
         #     self.display.setText(self.display.text() + key)
 
 
-        for i in constantDic.keys():
-            if key == i:
-                self.display.setText(constantDic[i])
+        elif key in constantDic:
+            for i in constantDic.keys():
+                if key == i:
+                    self.display.setText(constantDic[i])
 
-
-        for i in functionDic.keys():
-            if key == i:
-                n = self.display.text()
-                value = calcFunctions.functionDic[i](n)
-                self.display.setText(str(value))
+        elif key in functionDic:
+            for i in functionDic.keys():
+                if key == i:
+                    n = self.display.text()
+                    value = functionDic[i](n)
+                    self.display.setText(str(value))
 
 
         else:
