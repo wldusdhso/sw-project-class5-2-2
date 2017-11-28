@@ -18,7 +18,7 @@ class Guess:
         if self.secretWord.find(character) > -1: #입력한 단어를 secretWord에서 찾는다
             for i in range (len(self.secretWord)): #secretWord의 길이만큼 for문
                 if self.secretWord[i] == character: #입력한 단어가 secretWord에 있으면
-                    success = self.currentStatus[:i] + character + self.currentStatus[i:] #Current에 단어를 입력
+                    success = self.currentStatus[:i] + character + self.currentStatus[i+1:] #Current에 단어를 입력
                     self.currentStatus = success
 
                     if success == self.secretWord: #내가 입력한 단어와 secretWord가 일치하면 True, 아니면 False
