@@ -22,7 +22,7 @@ class Guess:
             indexnum = 0
             self.indexnumL = []
             while self.secretWord.find(character,indexnum)!=-1:
-                indexnum += self.secretWord.find(character,indexnum)
+                indexnum = self.secretWord.find(character,indexnum)
                 self.indexnumL += [indexnum]
                 indexnum += 1
             for i in self.indexnumL:
