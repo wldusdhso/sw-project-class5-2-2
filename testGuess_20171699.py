@@ -41,9 +41,18 @@ class TestGuess(unittest.TestCase):
         self.assertEqual(self.g1.currentStatus, 'de_a__t')
         self.g1.guess('u')
         self.assertEqual(self.g1.currentStatus, 'de_au_t')
+
+    def testfinished(self):
         #단어 전체를 다 맞춘 경우에 대한 처리가 올바른가?
+        self.assertFalse(self.g1.finished())
+        self.g1.guess('d')
+        self.g1.guess('r')
+        self.g1.guess('a')
+        self.g1.guess('t')
+        self.g1.guess('u')
         self.g1.guess('f')
         self.g1.guess('l')
+        self.assertTrue(self.g1.finished())
 
 
 
